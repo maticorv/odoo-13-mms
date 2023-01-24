@@ -5,14 +5,14 @@ services:
       context: .
       dockerfile:
         Dockerfile
-    container_name: odoo-13-mss
+    container_name: odoo-13-mms
     restart: unless-stopped
     depends_on:
       - db
     ports:
       - "8079:8069"
     volumes:
-      - odoo-15-mss-web-data:/var/lib/odoo
+      - odoo-15-mms-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
     environment:
@@ -23,7 +23,7 @@ services:
   
   db:
     image: postgres:13
-    container_name: postgres-13-mss
+    container_name: postgres-13-mms
     restart: unless-stopped
     ports:
       - "5442:5432"
@@ -33,7 +33,7 @@ services:
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - odoo-15-mss-db-data:/var/lib/postgresql/data/pgdata
+      - odoo-15-mms-db-data:/var/lib/postgresql/data/pgdata
 volumes:
-  odoo-15-mss-web-data:
-  odoo-15-mss-db-data:
+  odoo-15-mms-web-data:
+  odoo-15-mms-db-data:
