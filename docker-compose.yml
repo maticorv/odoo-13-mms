@@ -1,0 +1,39 @@
+version: '3.1'
+services:
+  web:
+    build:
+      context: .
+      dockerfile:
+        Dockerfile
+    container_name: odoo-13-mss
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8079:8069"
+    volumes:
+      - odoo-15-mss-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+    - HOST=db
+    - USER=odoo
+    - PASSWORD=v)Xq3G8KVhs)Jm5m
+    - PGDATA=/var/lib/postgresql/data/pgdata
+  
+  db:
+    image: postgres:13
+    container_name: postgres-13-mss
+    restart: unless-stopped
+    ports:
+      - "5442:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=v)Xq3G8KVhs)Jm5m
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-15-mss-db-data:/var/lib/postgresql/data/pgdata
+volumes:
+  odoo-15-mss-web-data:
+  odoo-15-mss-db-data:
