@@ -1,9 +1,18 @@
 git+https://github.com/OCA/openupgradelib.git@master
 unicodecsv
 unidecode
-httplib2==0.9.2
-PySimpleSOAP==1.08.14
-git+https://github.com/ingadhoc/pyafipws@py3k
+httplib2==0.14.0
+pysimplesoap==1.08.14
+git+https://github.com/reingart/pyafipws.git
+cryptography==3.3.2; python_version <= '2.7'
+cryptography==3.4.7; python_version > '3'
+fpdf>=1.7.2
+dbf>=0.88.019
+Pillow>=2.0.0
+tabulate==0.8.5
+certifi>=2020.4.5.1
+qrcode==6.1
+future==0.18.3
 git+https://github.com/adhoc-dev/aeroolib@master-fix-ods
 git+https://github.com/aeroo/currency2text.git
 git+https://github.com/edgewall/genshi@stable/0.7.x
