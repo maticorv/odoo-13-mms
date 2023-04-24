@@ -24,7 +24,7 @@ websocket-client
 pretty_bad_protocol
 requests_mock
 dropbox
-google-api-python-client
+google-api-python-client==1.12.1
 bs4
 swagger-spec-validator==2.4.3
 wheel
